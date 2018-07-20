@@ -4,6 +4,7 @@ package com.cursosdedesarrollo.datosandroidkotlin
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
 import android.util.Log
 
 
@@ -39,11 +40,7 @@ class RoomActivity : AppCompatActivity() {
         */
     }
 
-    private fun insertTask(task: Task) {
-        doAsync {
-            val myTask=taskDao.insertTask(task)
-        }
-    }
+
 
     fun getTasks() {
         doAsync {
@@ -59,11 +56,15 @@ class RoomActivity : AppCompatActivity() {
     }
     fun addTask(task:Task){
         doAsync {
-                val id = taskDao.insertTask(task)
-                val recoveryTask = taskDao.getTaskById(id)
+            val id = taskDao.insertTask(task)
+            val recoveryTask = taskDao.getTaskById(id)
 
-                tasks.add(recoveryTask)
-                adapter.notifyItemInserted(tasks.size)
+            tasks.add(recoveryTask)
+            adapter.notifyItemInserted(tasks.size)
+
+            runOnUiThread {
+                etTask.text.clear()
+            }
         }
     }
 
@@ -71,6 +72,7 @@ class RoomActivity : AppCompatActivity() {
         adapter = TasksAdapter(tasks,
                 {
                     doAsync {
+                        it.isDone=!(it.isDone)
                         taskDao.updateTask(it)
                     }
 
