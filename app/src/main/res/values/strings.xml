@@ -17,4 +17,17 @@
     </string-array>
     <string name="pref_syncConnectionTypes_default">Primero</string>
     <string name="pref_host">Host</string>
+    <string name="title_activity_listado">ListadoActivity</string>
+    <string name="title_activity_mostrar">Mostrar</string>
+    <string name="add">Nuevo</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Borrar</string>
+    <string name="deleted">Borrado</string>
+    <string name="modified">Modificado</string>
+    <string name="title_activity_add_edit">AddEdit</string>
+    <string name="save">Guardar</string>
+    <string name="saved">Guardado</string>
+    <string name="cadena">Cadena</string>
+    <string name="titulo_cadena">Nombre</string>
+    <string name="empty_set">Sin contenidos</string>
 </resources>

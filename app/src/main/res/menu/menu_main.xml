@@ -17,4 +17,9 @@
         android:orderInCategory="100"
         android:title="Room"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sqlite"
+        android:orderInCategory="100"
+        android:title="SQlite"
+        app:showAsAction="never" />
 </menu>
