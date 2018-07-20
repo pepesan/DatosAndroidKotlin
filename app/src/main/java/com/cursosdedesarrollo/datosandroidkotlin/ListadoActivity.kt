@@ -74,7 +74,7 @@ class ListadoActivity : AppCompatActivity() {
                 empty.setVisibility(View.VISIBLE)
                 list.setVisibility(View.GONE)
             }
-            adapter.listado=modelo.persons
+            adapter.listado= modelo.listado
             adapter.forceReload()
             Log.d("app:ListadoActivity","Listado:${datos}")
         }

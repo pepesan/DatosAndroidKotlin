@@ -9,7 +9,7 @@ import java.util.ArrayList
 
 class Modelo internal constructor(aplicacion: Aplicacion) {
     private val db: SQLiteDatabase
-    private var listado: MutableList<Person>? = null
+    lateinit var listado: MutableList<Person>
     val persons: List<Person>?
         get() = listado
 
