@@ -5,16 +5,6 @@
     <string name="pref_sync">Preference Sync</string>
     <string name="pref_sync_summ">Preference Sync Summery</string>
     <string name="pref_syncConnectionType">Preference Sync Connection Type</string>
-    <string-array name="pref_syncConnectionTypes_entries">
-        <item>Primero</item>
-        <item>Segundo</item>
-        <item>Tercero</item>
-    </string-array>
-    <string-array name="pref_syncConnectionTypes_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
     <string name="pref_syncConnectionTypes_default">Primero</string>
     <string name="pref_host">Host</string>
     <string name="title_activity_listado">ListadoActivity</string>
@@ -30,4 +20,15 @@
     <string name="cadena">Cadena</string>
     <string name="titulo_cadena">Nombre</string>
     <string name="empty_set">Sin contenidos</string>
+    <string name="action_preferences">Preferences</string>
+    <string-array name="pref_syncConnectionTypes_entries">
+        <item>Primero</item>
+        <item>Segundo</item>
+        <item>Tercero</item>
+    </string-array>
+    <string-array name="pref_syncConnectionTypes_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

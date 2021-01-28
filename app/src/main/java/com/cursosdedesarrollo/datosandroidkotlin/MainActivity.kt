@@ -70,6 +70,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            R.id.action_preference_activity -> {
+                val intent = Intent(this,CompatSettingsActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.action_ficheros -> {
                 val intent = Intent(this,FicherosActivity::class.java)
                 startActivity(intent)
