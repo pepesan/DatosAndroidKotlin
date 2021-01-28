@@ -1,19 +1,25 @@
 package com.cursosdedesarrollo.datosandroidkotlin
 
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.Editable
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import androidx.recyclerview.widget.RecyclerView
 
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_room.*
+
 
 class RoomActivity : AppCompatActivity() {
 
+    private var rvTask: RecyclerView? = null
+    private var etTask: EditText? = null
+    private var btnAddTask: Button? = null
     lateinit var tasks: MutableList<Task>
     lateinit var taskDao: TaskDao
     lateinit var adapter : TasksAdapter
@@ -26,8 +32,11 @@ class RoomActivity : AppCompatActivity() {
         //getTasks()
         //insertTask(Task(id = 0,name = "Tarea"))
         getTasks()
-        btnAddTask.setOnClickListener {
-            addTask(Task(name = etTask.text.toString()))}
+        btnAddTask= findViewById<Button>(R.id.btnAddTask)
+        etTask = findViewById<EditText>(R.id.etTask)
+        rvTask = findViewById<RecyclerView>(R.id.rvTask)
+        btnAddTask?.setOnClickListener {
+            addTask(Task(name = etTask?.text.toString()))}
         /*
         (application as Aplicacion).addPerson("Nombre","Apellido")
         val flowable=(application as Aplicacion).registerAllPersonListener()
@@ -63,7 +72,7 @@ class RoomActivity : AppCompatActivity() {
             adapter.notifyItemInserted(tasks.size)
 
             runOnUiThread {
-                etTask.text.clear()
+                etTask?.text?.clear()
             }
         }
     }
@@ -84,9 +93,9 @@ class RoomActivity : AppCompatActivity() {
 
                 })
 
-        rvTask.setHasFixedSize(true)
-        rvTask.layoutManager = LinearLayoutManager(this)
-        rvTask.adapter = adapter
+        rvTask?.setHasFixedSize(true)
+        rvTask?.layoutManager = LinearLayoutManager(this)
+        rvTask?.adapter = adapter
     }
     inline fun doAsync(crossinline f: () -> Unit) {
         Thread({ f() }).start()

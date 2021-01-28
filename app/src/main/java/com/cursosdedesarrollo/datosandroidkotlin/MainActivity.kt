@@ -4,28 +4,34 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var cambia: Button? = null
+    private var muestra: Button? = null
+    private var toolbar: Toolbar? = null
     var sharedPref: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar as Toolbar)
         sharedPref = getPreferences(Context.MODE_PRIVATE)
-        muestra.setOnClickListener({
+        muestra = findViewById<Button>(R.id.muestra)
+        muestra?.setOnClickListener({
             show(it)
         })
-        cambia.setOnClickListener({
+        cambia = findViewById<Button>(R.id.cambia)
+        cambia?.setOnClickListener({
             write(it)
         })
     }

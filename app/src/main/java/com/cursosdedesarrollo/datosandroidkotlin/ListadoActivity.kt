@@ -2,19 +2,21 @@ package com.cursosdedesarrollo.datosandroidkotlin
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
-import kotlinx.android.synthetic.main.activity_listado.*
-import kotlinx.android.synthetic.main.content_listado.*
 
 class ListadoActivity : AppCompatActivity() {
+    private var list: ListView? = null
+    private var empty: TextView? = null
     lateinit var adapter: TestListAdapter
     private var primera: Boolean? = true
     lateinit var app: Aplicacion
@@ -24,7 +26,8 @@ class ListadoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado)
-        setSupportActionBar(toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar as Toolbar)
 
         /*fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -41,15 +44,17 @@ class ListadoActivity : AppCompatActivity() {
         Log.d("app:ListadoActivity","Listado:${datos}")
         adapter = TestListAdapter(this,
                 R.layout.item, datos)
+        empty = findViewById<TextView>(R.id.empty)
+        list = findViewById<ListView>(R.id.list)
         if (datos.size <= 0) {
 
-            empty.setVisibility(View.VISIBLE)
+            empty?.setVisibility(View.VISIBLE)
 
-            list.setVisibility(View.GONE)
+            list?.setVisibility(View.GONE)
         }
-        list.setAdapter(adapter)
-        list.setTextFilterEnabled(true)
-        list.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+        list?.setAdapter(adapter)
+        list?.setTextFilterEnabled(true)
+        list?.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
             val intent = Intent(this,
                     Mostrar::class.java)
             intent.putExtra("id", id)
@@ -68,11 +73,11 @@ class ListadoActivity : AppCompatActivity() {
             primera = false
         } else {
             if (datos.size > 0) {
-                empty.setVisibility(View.GONE)
-                list.setVisibility(View.VISIBLE)
+                empty?.setVisibility(View.GONE)
+                list?.setVisibility(View.VISIBLE)
             } else {
-                empty.setVisibility(View.VISIBLE)
-                list.setVisibility(View.GONE)
+                empty?.setVisibility(View.VISIBLE)
+                list?.setVisibility(View.GONE)
             }
             adapter.listado= modelo.listado
             adapter.forceReload()
