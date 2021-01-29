@@ -1,15 +1,15 @@
 package com.cursosdedesarrollo.datosandroidkotlin
 
 import android.Manifest
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.content.pm.PackageManager
 import android.Manifest.permission
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v4.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.app.ActivityCompat
 import android.os.Environment.getExternalStorageDirectory
 import android.content.Context.MODE_PRIVATE
 import android.os.Environment

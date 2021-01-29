@@ -1,6 +1,6 @@
 package com.cursosdedesarrollo.datosandroidkotlin
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import io.reactivex.Flowable
 
 @Entity
