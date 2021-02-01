@@ -56,9 +56,9 @@ class FicherosActivity : AppCompatActivity() {
 
     fun creaExterno(v: View?) {
         try {
-            val ruta_sd = Environment.getExternalStorageDirectory()
+            val ruta_sd = getExternalFilesDir("/mnt/sd_card")
 
-            val f = File(ruta_sd.getAbsolutePath(), "prueba_sd.txt")
+            val f = File(ruta_sd?.getAbsolutePath(), "prueba_sd.txt")
 
             val fout = OutputStreamWriter(
                     FileOutputStream(f))
@@ -74,9 +74,9 @@ class FicherosActivity : AppCompatActivity() {
 
     fun leeExterno(v: View) {
         try {
-            val ruta_sd = Environment.getExternalStorageDirectory()
+            val ruta_sd = getExternalFilesDir("/mnt/sd_card")
 
-            val f = File(ruta_sd.getAbsolutePath(), "prueba_sd.txt")
+            val f = File(ruta_sd?.getAbsolutePath(), "prueba_sd.txt")
 
             val fin = BufferedReader(
                     InputStreamReader(
