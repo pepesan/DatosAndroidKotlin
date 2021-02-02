@@ -116,7 +116,7 @@ class FicherosActivity : AppCompatActivity() {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
             //Go ahead with recording audio now
-            Toast.makeText(this, "Permissions granted to record audio", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Permissions granted to write files", Toast.LENGTH_LONG).show()
             creaExterno(null)
         }//If permission is granted, then go ahead recording audio
     }
