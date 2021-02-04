@@ -85,6 +85,7 @@ class ListadoActivity : AppCompatActivity() {
             adapter.forceReload()
             Log.d("app:ListadoActivity","Listado:${datos}")
         }
+        adapter.forceReload()
     }
 
     var back: Int? = 0
