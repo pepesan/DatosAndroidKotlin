@@ -56,12 +56,12 @@ class ListadoActivity : AppCompatActivity() {
         }
         list?.setAdapter(adapter)
         list?.setTextFilterEnabled(true)
-        list?.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+        list?.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val intent = Intent(this,
-                    Mostrar::class.java)
+                Mostrar::class.java)
             intent.putExtra("id", id)
             startActivity(intent)
-        })
+        }
     }
 
     fun goAdd(v: View?) {
@@ -71,18 +71,20 @@ class ListadoActivity : AppCompatActivity() {
 
     public override fun onResume() {
         super.onResume()
+        Log.d("app","Listado Onresume")
+        app.modelo.loadList()
+        datos  = modelo.listado
+        if (datos.isNotEmpty()) {
+            empty?.visibility = View.GONE
+            list?.visibility = View.VISIBLE
+        } else {
+            empty?.visibility = View.VISIBLE
+            list?.visibility = View.GONE
+        }
         if (primera == true) {
             primera = false
         } else {
-            if (datos.size > 0) {
-                empty?.setVisibility(View.GONE)
-                list?.setVisibility(View.VISIBLE)
-            } else {
-                empty?.setVisibility(View.VISIBLE)
-                list?.setVisibility(View.GONE)
-            }
-            adapter.listado= modelo.listado
-            adapter.forceReload()
+            adapter.listado= datos
             Log.d("app:ListadoActivity","Listado:${datos}")
         }
         adapter.forceReload()

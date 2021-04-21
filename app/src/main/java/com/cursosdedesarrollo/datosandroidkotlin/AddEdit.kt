@@ -21,7 +21,7 @@ class AddEdit : AppActivity() {
         try {
             val extras = intent.extras
             id = extras!!.getLong("id")
-            p = app.get(id)
+            p = app[id]
             edit = true
         } catch (e: Exception) {
             edit = false

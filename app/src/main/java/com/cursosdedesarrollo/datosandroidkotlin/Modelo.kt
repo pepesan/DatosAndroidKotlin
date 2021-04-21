@@ -25,7 +25,15 @@ class Modelo internal constructor(aplicacion: Aplicacion) {
     fun loadList() {
         listado = ArrayList()
         val personCursor = db.query(PersonSqliteHelper.PERSON_TABLE,
-                arrayOf(PersonSqliteHelper.PERSON_ID, PersonSqliteHelper.PERSON_NAME, PersonSqliteHelper.PERSON_TLF, PersonSqliteHelper.PERSON_GLOBAL, PersonSqliteHelper.PERSON_PHOTOPATH, PersonSqliteHelper.PERSON_THUMBPHOTOPATH, PersonSqliteHelper.PERSON_LOCATION), null, null, null, null,
+                    arrayOf(
+                        PersonSqliteHelper.PERSON_ID,
+                        PersonSqliteHelper.PERSON_NAME,
+                        PersonSqliteHelper.PERSON_TLF,
+                        PersonSqliteHelper.PERSON_GLOBAL,
+                        PersonSqliteHelper.PERSON_PHOTOPATH,
+                        PersonSqliteHelper.PERSON_THUMBPHOTOPATH,
+                        PersonSqliteHelper.PERSON_LOCATION),
+            null, null, null, null,
                 //String.format("%s,%s",PERSON_GLOBAL, PERSON_NAME )
                 String.format("%s",
                         PersonSqliteHelper.PERSON_GLOBAL))
@@ -66,8 +74,9 @@ class Modelo internal constructor(aplicacion: Aplicacion) {
         values.put(PersonSqliteHelper.PERSON_LONGITUDE, p.longitude)
 
         p.id = db.insert(PersonSqliteHelper.PERSON_TABLE, null, values)
-
+        Log.d("app",p.toString())
         listado!!.add(p)
+
     }
 
     @SuppressLint("DefaultLocale")

@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity() {
         cambia = findViewById<Button>(R.id.cambia)
         setSupportActionBar(toolbar)
         sharedPref = getPreferences(Context.MODE_PRIVATE)
-        muestra?.setOnClickListener({
+        muestra?.setOnClickListener {
             show(it)
-        })
-        cambia?.setOnClickListener({
+        }
+        cambia?.setOnClickListener {
             write(it)
-        })
+        }
     }
 
     fun write(v: View){

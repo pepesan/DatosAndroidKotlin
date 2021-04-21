@@ -13,4 +13,4 @@
         app:title="Send feedback"
         app:summary="Report technical issues or suggest new features"/>
 
-</PreferenceScreen>
+    </PreferenceScreen>
